@@ -16,7 +16,7 @@ export class AuthService {
       username,
       password,
     };
-    return this.http.post(`${this.url}+'/login/'`, requestBody);
+    return this.http.post(`${this.url}'/login/'`, requestBody);
   }
 
   setToken(token: string): void {
