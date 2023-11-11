@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class AuthService {
-  url = ' http://4.210.225.238';
+  url = ' https://4.210.225.238';
   private token: string | null = null;
 
   constructor(private http: HttpClient) {}
@@ -16,7 +16,7 @@ export class AuthService {
       username,
       password,
     };
-    return this.http.post(`${this.url}'/login/'`, requestBody);
+    return this.http.post(`${this.url}/login/`, requestBody);
   }
 
   setToken(token: string): void {
