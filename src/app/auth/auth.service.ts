@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class AuthService {
-  url = ' http://4.210.225.238';
+  url = ' http://4.210.225.238/api';
   private token: string | null = null;
 
   constructor(private http: HttpClient) {}
