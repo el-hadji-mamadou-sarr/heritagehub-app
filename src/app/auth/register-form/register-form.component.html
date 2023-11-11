@@ -45,7 +45,12 @@
           placeholder="confirm your password"
         />
       </mat-form-field>
-      <span class="create-acc">Vous avez déja un compte ?</span>
+      <a
+        [routerLink]="['/login']"
+        routerLinkActive="router-link-active"
+        class="create-acc"
+        >Vous avez déja un compte ?</a
+      >
       <button mat-raised-button color="primary" class="button">Submit</button>
     </form>
   </div>

@@ -59,6 +59,8 @@
   font-weight: 500;
   line-height: 16px; /* 114.286% */
   letter-spacing: 1.25px;
+  text-decoration: none;
+  color: inherit;
 }
 
 .logo {

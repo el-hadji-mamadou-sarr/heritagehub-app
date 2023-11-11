@@ -27,7 +27,12 @@
           placeholder="enter your password"
         />
       </mat-form-field>
-      <span class="create-acc">Vous avez pas encore de compte ?</span>
+      <a
+        [routerLink]="['/register']"
+        routerLinkActive="active-link"
+        class="create-acc"
+        >Vous avez pas encore de compte ?</a
+      >
       <button mat-raised-button color="primary" class="button">Submit</button>
     </form>
   </div>
