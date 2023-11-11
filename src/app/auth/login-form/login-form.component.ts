@@ -28,7 +28,7 @@ export class LoginFormComponent {
   }
 
   onSubmit() {
-    const username = this.loginForm.value.email;
+    const username = this.loginForm.value.username;
     const password = this.loginForm.value.password;
 
     this.authService.login(username, password).subscribe({
