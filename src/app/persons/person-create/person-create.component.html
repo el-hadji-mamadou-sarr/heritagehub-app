@@ -1,0 +1,76 @@
+<div class="main">
+  <div class="title-elt">
+    <span class="title-text">Créer une nouvelle personne</span>
+  </div>
+  <form class="example-form" [formGroup]="personCreateForm">
+    <div class="names-row">
+      <mat-form-field class="example-full-width">
+        <mat-label>prénom</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="firstname"
+          placeholder="entrer le prénom"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Nom</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="lastname"
+          placeholder="Entrer le nom"
+        />
+      </mat-form-field>
+    </div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Date de naissance</mat-label>
+      <input
+        matInput
+        type="date"
+        formControlName="birthdate"
+        placeholder="Entrer la date de naissance"
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>ID de la famille</mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="familly_id"
+        placeholder="Entrer l'ID de la famille"
+      />
+    </mat-form-field>
+
+    <div class="parents">
+      <mat-form-field class="example-full-width">
+        <mat-label>ID du pére</mat-label>
+        <input
+          matInput
+          type="number"
+          formControlName="father_id"
+          placeholder="Entrer l'ID du pére"
+        />
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>ID de la mére</mat-label>
+        <input
+          matInput
+          type="number"
+          formControlName="mother_id"
+          placeholder="Entrer l'ID de la mére"
+        />
+      </mat-form-field>
+    </div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Genre</mat-label>
+      <select matNativeControl required>
+        <option value="male">Masculin</option>
+        <option value="female">Feminin</option>
+      </select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="button">Submit</button>
+  </form>
+</div>

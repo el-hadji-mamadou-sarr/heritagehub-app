@@ -7,10 +7,20 @@
       importants de la vie de vos proches.
     </p>
     <div class="auth-buttons">
-      <button mat-raised-button class="btn" style="background: #e4f7fb">
+      <button
+        mat-raised-button
+        class="btn"
+        style="background: #e4f7fb"
+        (click)="navigateToLogin()"
+      >
         <span class="text-btn">se connecter</span>
       </button>
-      <button mat-raised-button class="btn" style="background: #12143e">
+      <button
+        mat-raised-button
+        class="btn"
+        style="background: #12143e"
+        (click)="navigateToRegister()"
+      >
         <span class="text-btn" style="color: #e4f7fb">Créer un compte</span>
       </button>
     </div>
