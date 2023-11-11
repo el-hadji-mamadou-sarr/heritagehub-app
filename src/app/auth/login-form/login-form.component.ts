@@ -5,6 +5,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -14,10 +16,32 @@ import {
 export class LoginFormComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.loginForm = this.fb.group({
-      email: ['', Validators.required],
+      username: ['', Validators.required],
       password: ['', Validators.required],
+    });
+  }
+
+  onSubmit() {
+    const username = this.loginForm.value.email;
+    const password = this.loginForm.value.password;
+
+    this.authService.login(username, password).subscribe({
+      next: (response) => {
+        console.log(response);
+        const token = response.access;
+        this.authService.setToken(token);
+        this.router.navigate(['dashboard']);
+        //add login status
+      },
+      error: (error) => {
+        console.log('login failed', error);
+      },
     });
   }
 }

@@ -17,6 +17,8 @@ import { PersonCreateComponent } from './persons/person-create/person-create.com
 import { MatSelectModule } from '@angular/material/select';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatTableModule } from '@angular/material/table';
+import { AuthService } from './auth/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +42,7 @@ import { MatTableModule } from '@angular/material/table';
     MatIconModule,
     MatSelectModule,
     MatTableModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
