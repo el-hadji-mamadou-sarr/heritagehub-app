@@ -15,6 +15,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { PersonCreateComponent } from './persons/person-create/person-create.component';
 import { MatSelectModule } from '@angular/material/select';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatTableModule } from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +25,7 @@ import { MatSelectModule } from '@angular/material/select';
     TopbarComponent,
     HomeComponent,
     PersonCreateComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatToolbarModule,
     MatIconModule,
     MatSelectModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

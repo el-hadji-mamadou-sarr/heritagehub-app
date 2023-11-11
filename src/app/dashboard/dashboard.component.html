@@ -1,0 +1,34 @@
+<main style="margin: 86px">
+  <div class="title-elt">
+    <span class="title-text">Les personnes crées</span>
+  </div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="familly_id">
+      <th mat-header-cell *matHeaderCellDef>ID de la famille</th>
+      <td mat-cell *matCellDef="let element">{{ element.familly_id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Nom et Prénom</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="events">
+      <th mat-header-cell *matHeaderCellDef>Evénements</th>
+      <td mat-cell *matCellDef="let element">{{ element.events }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="relations">
+      <th mat-header-cell *matHeaderCellDef>Relations</th>
+      <td mat-cell *matCellDef="let element">{{ element.relations }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</main>
