@@ -1,0 +1,79 @@
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-section {
+  display: flex;
+  padding: 117px 329px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  align-self: stretch;
+  background: #122d3e;
+}
+
+.auth-buttons {
+  display: flex;
+  padding: 23px 27px;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.btn {
+  display: flex;
+  width: 267px;
+  height: 45px;
+  padding: 6px 6px 6px 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-btn {
+  border-radius: 4px;
+  background: #e4f7fb;
+}
+
+.register-btn {
+  border-radius: 4px;
+  background: #12143e;
+}
+
+.hero-para {
+  color: #fff;
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 120% */
+  letter-spacing: 0.15px;
+}
+
+.text-btn {
+  color: #122d3e;
+  /* Button */
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px; /* 114.286% */
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+}
+
+.discover-section {
+  display: flex;
+  justify-content: center;
+  background: #e4f7fb;
+  align-items: center;
+  gap: 90px;
+  padding-top: 50px;
+}
+
+.text-para {
+  width: 643px;
+}
