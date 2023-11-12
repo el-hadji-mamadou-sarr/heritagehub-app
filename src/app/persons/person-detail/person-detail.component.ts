@@ -7,10 +7,12 @@ import {
 } from '@angular/forms';
 import { PersonService } from '../person.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { jwtDecode } from 'jwt-decode';
+
 import { AuthService } from '../../auth/auth.service';
 import { Event } from '../../interfaces/event.interface';
 import { Relation } from '../../interfaces/relation.interface';
+import { jwtNewDecode } from '../../../utils/decodedPayload';
+
 
 @Component({
   selector: 'app-person-detail',
@@ -51,8 +53,9 @@ export class PersonDetailComponent implements OnInit {
 
   checkIsAdmin(token: string, created_by: number): any {
     try {
-      const decoded = jwtDecode(token);
-      if (decoded.user_id == created_by) {
+      const decoded = jwtNewDecode(token);
+      console.log(decoded);
+      if (+decoded.sub! == created_by) {
         this.canEdit = true;
       }
     } catch (Error) {
