@@ -1,4 +1,4 @@
-<app-relation-view *ngFor="let relation of relations" [relation]="relation" (relationDeleted)="deleteRelation($event)"></app-relation-view>
+<app-relation-view *ngFor="let relation of relations" [relation]="relation" (relationDeleted)="deleteRelation($event)" [canEdit]="canEdit"></app-relation-view>
 <button
   mat-raised-button
   *ngIf="canEdit && !openForm"

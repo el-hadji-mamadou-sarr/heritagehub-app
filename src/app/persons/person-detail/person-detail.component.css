@@ -1,7 +1,6 @@
 .main {
   margin-top: 20px;
   margin-left: 80px;
-  
 }
 
 .title-elt {
@@ -13,7 +12,7 @@
   justify-content: center;
   align-items: flex-start;
   gap: 30px;
-  background: #122d3e !important;
+  background: #122d3e !important; 
 }
 
 .title-text {

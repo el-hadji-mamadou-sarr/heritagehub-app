@@ -13,7 +13,6 @@ import { Event } from '../../interfaces/event.interface';
 import { Relation } from '../../interfaces/relation.interface';
 import { jwtNewDecode } from '../../../utils/decodedPayload';
 
-
 @Component({
   selector: 'app-person-detail',
   templateUrl: './person-detail.component.html',
@@ -65,21 +64,28 @@ export class PersonDetailComponent implements OnInit {
 
   handleFormSubmission(submitted: boolean) {
     this.isFormSubmitted = submitted;
-    this.noEvents = false;
     this.getPersonDetail();
-    this.personService.clearPersonsCache()
+    this.checkCount();
+    this.personService.clearPersonsCache();
   }
-  
+  checkCount() {
+    if (this.events.length + 1 > 0) {
+      this.noEvents = false;
+    }
+    if (this.relations.length + 1 > 0) {
+      this.noRelations = false;
+    }
+  }
+
   handleRelationDeletion(deleted: boolean) {
     this.getPersonDetail();
-    this.personService.clearPersonsCache()
+    this.personService.clearPersonsCache();
   }
-  
+
   handleEventDeletion(deleted: boolean) {
     this.getPersonDetail();
-    this.personService.clearPersonsCache()
+    this.personService.clearPersonsCache();
   }
-  
 
   getPersonDetail() {
     const param = this.route.snapshot.paramMap.get('id');

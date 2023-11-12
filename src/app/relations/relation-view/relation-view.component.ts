@@ -11,6 +11,7 @@ import { RelationService } from '../relation.service';
 export class RelationViewComponent {
   relationForm: FormGroup;
   @Input() relation!: Relation;
+  @Input() canEdit!:boolean;
   @Output() relationDeleted = new EventEmitter<boolean>();
   constructor(private fb: FormBuilder, private relationService:RelationService) {
     this.relationForm = this.fb.group({

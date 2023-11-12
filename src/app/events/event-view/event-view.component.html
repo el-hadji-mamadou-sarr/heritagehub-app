@@ -21,7 +21,7 @@
         />
       </mat-form-field>
     </div>
-    <button mat-icon-button (click)="deleteEvent()" class="delete-btn">
+    <button mat-icon-button (click)="deleteEvent()" class="delete-btn" *ngIf="canEdit">
       <mat-icon>delete</mat-icon>
     </button>
   </form>

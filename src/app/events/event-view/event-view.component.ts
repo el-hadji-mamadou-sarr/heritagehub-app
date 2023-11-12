@@ -11,9 +11,10 @@ import { EventService } from '../event.service';
 export class EventViewComponent implements OnInit {
   eventForm: FormGroup;
   @Input() event!: Event;
+  @Input() canEdit!: boolean;
   @Output() eventDeleted = new EventEmitter<boolean>();
 
-  constructor(private fb: FormBuilder, private eventService :EventService) {
+  constructor(private fb: FormBuilder, private eventService: EventService) {
     this.eventForm = this.fb.group({
       event_type: [{ value: '', disabled: true }, Validators.required],
       event_name: [{ value: '', disabled: true }, Validators.required],
@@ -27,10 +28,9 @@ export class EventViewComponent implements OnInit {
     });
   }
 
-  deleteEvent(){
+  deleteEvent() {
     this.eventService.deleteEvent(this.event.id!).subscribe({
       next: (response) => {
-        
         this.eventDeleted.emit(true);
       },
       error: (error) => {
