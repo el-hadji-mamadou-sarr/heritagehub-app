@@ -71,3 +71,8 @@
 .connectez-vous {
   align-self: flex-start;
 }
+
+.error-msg {
+  align-self: flex-start;
+  color: red;
+}

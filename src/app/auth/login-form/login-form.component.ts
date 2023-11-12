@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 })
 export class LoginFormComponent {
   loginForm: FormGroup;
+  formError: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -33,7 +34,11 @@ export class LoginFormComponent {
 
     this.authService.login(username, password).subscribe({
       next: (response) => {
-        console.log(response);
+        console.log(response.status);
+
+        if (response.status == 401) {
+          return;
+        }
         const token = response.access;
         this.authService.setToken(token);
         this.router.navigate(['dashboard']);
@@ -41,6 +46,7 @@ export class LoginFormComponent {
       },
       error: (error) => {
         console.log('login failed', error);
+        this.formError = true;
       },
     });
   }

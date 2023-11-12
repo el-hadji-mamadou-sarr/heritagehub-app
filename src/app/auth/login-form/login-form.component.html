@@ -8,6 +8,7 @@
     <img src="assets/logo.svg" alt="logo" class="logo" />
     <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <h1 class="connectez-vous">Connectez vous</h1>
+      <p class="error-msg" *ngIf="formError">Email ou mot de passe incorrect</p>
       <mat-form-field class="example-full-width">
         <mat-label>Username</mat-label>
         <input
@@ -33,7 +34,15 @@
         class="create-acc"
         >Vous avez pas encore de compte ?</a
       >
-      <button mat-raised-button color="primary" class="button" type="submit" >Submit</button>
+      <button
+        mat-raised-button
+        color="primary"
+        class="button"
+        type="submit"
+        [disabled]="loginForm.invalid"
+      >
+        Submit
+      </button>
     </form>
   </div>
 </div>

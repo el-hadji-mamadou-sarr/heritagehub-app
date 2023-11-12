@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
   url = ' http://4.210.225.238/api';
+  dev_url = 'http://localhost:8000';
   private token: string | null = null;
 
   constructor(private http: HttpClient) {}
@@ -17,7 +18,16 @@ export class AuthService {
       username,
       password,
     };
-    return this.http.post(`${this.url}/login/`, requestBody);
+    return this.http.post(`${this.dev_url}/login/`, requestBody);
+  }
+
+  register(username: string, email: string, password: string): Observable<any> {
+    const requestBody = {
+      username,
+      email,
+      password,
+    };
+    return this.http.post(`${this.dev_url}/users/`, requestBody);
   }
 
   setToken(token: string): void {
