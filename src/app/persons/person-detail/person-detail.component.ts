@@ -7,6 +7,9 @@ import {
 } from '@angular/forms';
 import { PersonService } from '../person.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { jwtDecode } from 'jwt-decode';
+import { AuthService } from '../../auth/auth.service';
+import { Event } from '../../interfaces/event.interface';
 
 @Component({
   selector: 'app-person-detail',
@@ -18,12 +21,14 @@ export class PersonDetailComponent implements OnInit {
   personID: number | null = null;
   noEvents: boolean = false;
   noRelations: boolean = false;
-
+  canEdit: boolean = false;
+  events:Event[]=[];
   constructor(
     private fb: FormBuilder,
     private personService: PersonService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authService: AuthService
   ) {
     this.personDetailForm = this.fb.group({
       firstname: [{ value: '', disabled: true }, Validators.required],
@@ -54,16 +59,29 @@ export class PersonDetailComponent implements OnInit {
           mother_id: response.mother_id,
           genre: response.gender,
         });
+        this.events=response.events!;
         if (response.events?.length == 0) {
           this.noEvents = true;
         }
         if (response.relations?.length == 0) {
           this.noRelations = true;
         }
+        this.checkIsAdmin(this.authService.getToken()!, response.created_by!);
       },
       error: (error) => {
         console.log(error);
       },
     });
+  }
+
+  checkIsAdmin(token: string, created_by: number): any {
+    try {
+      const decoded = jwtDecode(token);
+      if (decoded.user_id == created_by) {
+        this.canEdit = true;
+      }
+    } catch (Error) {
+      return null;
+    }
   }
 }

@@ -15,6 +15,7 @@ export interface Person {
   relations_count?: number;
   events?: Event[];
   relations?: Relation[];
+  created_by?: number;
 }
 
 export interface PersonQuerryResult{

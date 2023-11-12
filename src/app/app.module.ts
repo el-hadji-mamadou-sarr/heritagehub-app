@@ -21,6 +21,8 @@ import { AuthService } from './auth/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { PersonDetailComponent } from './persons/person-detail/person-detail.component';
+import { EventsViewComponent } from './events/events-view/events-view.component';
+import { RelationsViewComponent } from './relations/relations-view/relations-view.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +33,8 @@ import { PersonDetailComponent } from './persons/person-detail/person-detail.com
     PersonCreateComponent,
     DashboardComponent,
     PersonDetailComponent,
+    EventsViewComponent,
+    RelationsViewComponent,
   ],
   imports: [
     BrowserModule,

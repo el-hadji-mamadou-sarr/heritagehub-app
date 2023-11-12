@@ -29,7 +29,7 @@ export class PersonCreateComponent {
       familly_id: [''],
       father_id: [''],
       mother_id: [''],
-      genre: [''],
+      gender: [''],
     });
   }
 
@@ -49,7 +49,7 @@ export class PersonCreateComponent {
       mother_id: this.personCreateForm.value.mother_id
         ? this.personCreateForm.value.mother_id
         : null,
-      gender: this.personCreateForm.value.genre,
+      gender: this.personCreateForm.value.gender,
       child_from_marriage: null,
     };
     this.personService.createPerson(personval).subscribe({
