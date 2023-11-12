@@ -9,8 +9,8 @@ import { Relation } from '../interfaces/relation.interface';
   providedIn: 'root',
 })
 export class RelationService {
-  url = ' http://4.210.225.238/api';
-  dev_url = 'http://localhost:8000';
+  dev_url = ' http://4.210.225.238/api';
+  // dev_url = 'http://localhost:8000';
   constructor(
     private http: HttpClient,
     private authService: AuthService,
@@ -29,7 +29,7 @@ export class RelationService {
     });
   }
 
-  deleteRelation(id:number): Observable<Relation> {
+  deleteRelation(id: number): Observable<Relation> {
     const token = this.authService.getToken();
     var headers_object = new HttpHeaders().set(
       'Authorization',
@@ -38,5 +38,5 @@ export class RelationService {
     return this.http.delete<Relation>(`${this.dev_url}/relations/${id}/`, {
       headers: headers_object,
     });
-  } 
+  }
 }

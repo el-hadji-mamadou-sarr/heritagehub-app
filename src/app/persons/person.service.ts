@@ -9,8 +9,8 @@ import { AuthService } from '../auth/auth.service';
   providedIn: 'root',
 })
 export class PersonService {
-  url = ' http://4.210.225.238/api';
-  dev_url = 'http://localhost:8000';
+  dev_url = ' http://4.210.225.238/api';
+  // dev_url = 'http://localhost:8000';
 
   private personsCache$?: Observable<PersonQuerryResult>;
 
@@ -32,14 +32,18 @@ export class PersonService {
     return this.personsCache$;
   }
 
-  searchPersons(page: number, pageSize: number, search:string): Observable<PersonQuerryResult> {
-      const params = new HttpParams()
-        .set('page', page.toString())
-        .set('pageSize', pageSize.toString())
-        .set('search', search);
-      return this.http
-        .get<PersonQuerryResult>(`${this.dev_url}/persons/`, { params })
-
+  searchPersons(
+    page: number,
+    pageSize: number,
+    search: string
+  ): Observable<PersonQuerryResult> {
+    const params = new HttpParams()
+      .set('page', page.toString())
+      .set('pageSize', pageSize.toString())
+      .set('search', search);
+    return this.http.get<PersonQuerryResult>(`${this.dev_url}/persons/`, {
+      params,
+    });
   }
 
   getPersonDetail(id: number): Observable<Person> {
