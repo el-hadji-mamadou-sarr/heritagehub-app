@@ -10,17 +10,17 @@
         </a>
 
     <span class="example-spacer"></span>
-    <button mat-icon-button (click)="navigateToPersonCreate()">
-      <mat-icon>add</mat-icon>
+    <button mat-icon-button (click)="navigateToPersonCreate()" *ngIf="hide">
+      <mat-icon class="tab-icon">add</mat-icon>
     </button>
     <button mat-icon-button (click)="navigateToSearch()">
-      <mat-icon>search</mat-icon>
+      <mat-icon class="tab-icon">search</mat-icon>
     </button>
     <button mat-icon-button *ngIf="hide" (click)="navigateToDashboard()">
-      <mat-icon>grid_view</mat-icon>
+      <mat-icon class="tab-icon">grid_view</mat-icon>
     </button>
     <button mat-icon-button *ngIf="hide" (click)="logout()">
-      <mat-icon>logout</mat-icon>
+      <mat-icon class="tab-icon">logout</mat-icon>
     </button>
   </mat-toolbar>
 </div>
