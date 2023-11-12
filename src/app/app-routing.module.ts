@@ -5,6 +5,7 @@ import { RegisterFormComponent } from './auth/register-form/register-form.compon
 import { HomeComponent } from './home/home.component';
 import { PersonCreateComponent } from './persons/person-create/person-create.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PersonDetailComponent } from './persons/person-detail/person-detail.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,11 @@ const routes: Routes = [
     path: 'person/create',
     component: PersonCreateComponent,
   },
+  {
+    path: 'person/:id',
+    component: PersonDetailComponent,
+  },
+
   {
     path: 'dashboard',
     component: DashboardComponent,

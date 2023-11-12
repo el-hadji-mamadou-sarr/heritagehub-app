@@ -1,0 +1,64 @@
+.main {
+  margin-top: 20px;
+  margin-left: 80px;
+}
+
+.title-elt {
+  display: flex;
+  width: 612px;
+  padding: 20px 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  background: #122d3e !important;
+}
+
+.title-text {
+  color: #fff;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 120% */
+  letter-spacing: 0.15px;
+  text-transform: uppercase;
+}
+
+.example-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  height: 100%;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 405px;
+  margin-top: 20px;
+}
+
+.names-row {
+  display: flex;
+  width: 100%;
+  gap: 112px;
+}
+
+.parents {
+  display: flex;
+  gap: 112px;
+}
+
+.button {
+  width: 30%;
+  margin-top: 30px;
+  height: 45px;
+  text-align: center;
+  align-self: center;
+}
+
+.input-elt:disabled {
+  color: #122d3e !important;
+}

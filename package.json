@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "status": "ng generate service persons/person-service"
+    "person": "ng generate component persons/person-detail"
   },
   "private": true,
   "dependencies": {

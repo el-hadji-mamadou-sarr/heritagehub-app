@@ -19,6 +19,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatTableModule } from '@angular/material/table';
 import { AuthService } from './auth/auth.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { PersonDetailComponent } from './persons/person-detail/person-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     PersonCreateComponent,
     DashboardComponent,
+    PersonDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     MatTableModule,
     HttpClientModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

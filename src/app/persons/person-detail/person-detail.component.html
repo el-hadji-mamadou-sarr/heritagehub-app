@@ -1,16 +1,13 @@
-<div class="main" style="margin: 86px">
+<div class="main">
   <div class="title-elt">
-    <span class="title-text">Créer une nouvelle personne</span>
+    <span class="title-text">les informations personnelles</span>
   </div>
-  <form
-    class="example-form"
-    [formGroup]="personCreateForm"
-    (ngSubmit)="onSubmit()"
-  >
+  <form class="example-form" [formGroup]="personDetailForm">
     <div class="names-row">
       <mat-form-field class="example-full-width">
         <mat-label>prénom</mat-label>
         <input
+          class="input-elt"
           matInput
           type="text"
           formControlName="firstname"
@@ -21,6 +18,7 @@
       <mat-form-field class="example-full-width">
         <mat-label>Nom</mat-label>
         <input
+          class="input-elt"
           matInput
           type="text"
           formControlName="lastname"
@@ -31,6 +29,7 @@
     <mat-form-field class="example-full-width">
       <mat-label>Date de naissance</mat-label>
       <input
+        class="input-elt"
         matInput
         type="date"
         formControlName="birthdate"
@@ -40,6 +39,7 @@
     <mat-form-field class="example-full-width">
       <mat-label>ID de la famille</mat-label>
       <input
+        class="input-elt"
         matInput
         type="number"
         formControlName="familly_id"
@@ -51,6 +51,7 @@
       <mat-form-field class="example-full-width">
         <mat-label>ID du pére</mat-label>
         <input
+          class="input-elt"
           matInput
           type="number"
           formControlName="father_id"
@@ -60,6 +61,7 @@
       <mat-form-field class="example-full-width">
         <mat-label>ID de la mére</mat-label>
         <input
+          class="input-elt"
           matInput
           type="number"
           formControlName="mother_id"
@@ -68,21 +70,27 @@
       </mat-form-field>
     </div>
     <mat-form-field class="example-full-width">
-      <mat-label>Genre</mat-label>
-      <select matNativeControl required>
-        <option value="male">Masculin</option>
-        <option value="female">Feminin</option>
-      </select>
+      <mat-label class="label-elt">Genre</mat-label>
+      <input
+        class="input-elt"
+        matInput
+        type="text"
+        formControlName="genre"
+        placeholder="genre de la personne"
+      />
     </mat-form-field>
-
-    <button
-      mat-raised-button
-      color="primary"
-      type="submit"
-      [disabled]="personCreateForm.invalid"
-      class="button"
-    >
-      Submit
-    </button>
   </form>
+  <div class="title-elt">
+    <span class="title-text">Evenements</span>
+  </div>
+  <p *ngIf="noEvents">
+    cette personne n'as pas encore d'événements enregistrés
+  </p>
+
+  <div class="title-elt">
+    <span class="title-text">relations</span>
+  </div>
+  <p *ngIf="noRelations">
+    cette personne n'as pas encore de relations enregistrées
+  </p>
 </div>
