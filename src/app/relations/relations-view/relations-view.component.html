@@ -1,24 +1,13 @@
-<form class="example-form" [formGroup]="relationForm">
-  <div class="names-row">
-    <mat-form-field class="example-full-width">
-      <mat-label>Nom de la personne</mat-label>
-      <input
-        class="input-elt"
-        matInput
-        type="text"
-        formControlName="person_name"
-        placeholder="entrer le nom de la personne"
-      />
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <mat-label>type de la relation</mat-label>
-      <input
-        class="input-elt"
-        matInput
-        type="text"
-        formControlName="relation_type"
-        placeholder="entrer le type de la relation"
-      />
-    </mat-form-field>
-  </div>
-</form>
+<app-relation-view *ngFor="let relation of relations" [relation]="relation"></app-relation-view>
+<button
+  mat-raised-button
+  *ngIf="canEdit && !openForm"
+  (click)="openNewRelationForm()"
+  class="new-relation"
+>
+  <mat-icon>add</mat-icon>
+</button>
+<app-relation-new
+  *ngIf="canEdit && openForm"
+  (formSubmitted)="submitForm($event)"
+></app-relation-new>

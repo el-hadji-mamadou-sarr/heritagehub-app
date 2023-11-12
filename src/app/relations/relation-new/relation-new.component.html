@@ -1,0 +1,34 @@
+<form class="example-form" [formGroup]="relationForm" (ngSubmit)="onSubmit()">
+  <div class="names-row">
+    <mat-form-field class="example-full-width">
+      <mat-label>Type de relation</mat-label>
+      <select matNativeControl formControlName="relation_type">
+        <option
+          *ngFor="let relationType of RELATION_TYPES"
+          [value]="relationType"
+        >
+          {{ relationType }}
+        </option>
+      </select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>ID de la personne</mat-label>
+      <input
+        class="input-elt"
+        matInput
+        type="number"
+        formControlName="other_person_id"
+        placeholder="entrer l'ID de la personne"
+      />
+    </mat-form-field>
+  </div>
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="relationForm.invalid"
+    class="button"
+  >
+    Submit
+  </button>
+</form>

@@ -63,6 +63,7 @@ export class PersonDetailComponent implements OnInit {
   handleFormSubmission(submitted: boolean) {
     this.isFormSubmitted = submitted;
     this.getPersonDetail();
+    this.noEvents = false;
   }
 
   getPersonDetail() {

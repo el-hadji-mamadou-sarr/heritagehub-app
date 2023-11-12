@@ -7,8 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "events": "ng generate service events/event",
-    "relations": "ng generate component relations/relations-view"
+    "spinner": "ng generate component common/spinner",
+    "relations": "ng generate service relations/relation"
   },
   "private": true,
   "dependencies": {

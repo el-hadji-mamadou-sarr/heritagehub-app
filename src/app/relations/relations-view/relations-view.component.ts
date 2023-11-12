@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Relation } from '../../interfaces/relation.interface';
 
@@ -8,19 +8,18 @@ import { Relation } from '../../interfaces/relation.interface';
   styleUrl: './relations-view.component.css',
 })
 export class RelationsViewComponent {
-  relationForm: FormGroup;
-  @Input() relation!: Relation;
-  constructor(private fb: FormBuilder) {
-    this.relationForm = this.fb.group({
-      person_name: [{ value: '', disabled: true }, Validators.required],
-      relation_type: [{ value: '', disabled: true }, Validators.required],
-    });
-  }
+  @Input() relations!: Relation[];
+  @Input() canEdit!: boolean;
+  @Output() formSubmitted = new EventEmitter<boolean>();
 
-  ngOnInit(): void {
-    this.relationForm.patchValue({
-      person_name: `${this.relation.other_person?.first_name} ${this.relation.other_person?.last_name}`,
-      relation_type: this.relation.relation_type,
-    });
+  openForm: boolean = false;
+  isFormSubmitted: boolean = false;
+  openNewRelationForm() {
+    this.openForm = true;
+  }
+  submitForm(submitted: boolean) {
+    this.isFormSubmitted = submitted;
+    this.openForm = false;
+    this.formSubmitted.emit(true);
   }
 }
