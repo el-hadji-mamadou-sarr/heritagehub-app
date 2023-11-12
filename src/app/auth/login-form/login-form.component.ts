@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { AuthStatusService } from '../auth-status.service';
 
 @Component({
   selector: 'app-login-form',
@@ -20,6 +21,7 @@ export class LoginFormComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
+    private authStatusService: AuthStatusService,
     private router: Router
   ) {
     this.loginForm = this.fb.group({
@@ -42,7 +44,8 @@ export class LoginFormComponent {
         const token = response.access;
         this.authService.setToken(token);
         this.router.navigate(['dashboard']);
-        //add login status
+        
+        this.authStatusService.setIsLogginStatus(true);
       },
       error: (error) => {
         console.log('login failed', error);

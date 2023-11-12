@@ -9,8 +9,11 @@
     <button mat-icon-button>
       <mat-icon>search</mat-icon>
     </button>
-    <button mat-icon-button>
+    <button mat-icon-button *ngIf="hide" (click)="navigateToDashboard()">
       <mat-icon>grid_view</mat-icon>
+    </button>
+    <button mat-icon-button *ngIf="hide" (click)="logout()">
+      <mat-icon>logout</mat-icon>
     </button>
   </mat-toolbar>
 </div>
