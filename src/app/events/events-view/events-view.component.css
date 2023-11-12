@@ -1,22 +1,9 @@
-.example-form {
+.new-event {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  height: 100%;
-  width: 100%;
-}
-
-.example-full-width {
-  width: 405px;
-  margin-top: 20px;
-}
-
-.names-row {
-  display: flex;
-  width: 100%;
-  gap: 112px;
-}
-.input-elt:disabled {
-  color: #122d3e !important;
+  width: 867px;
+  height: 95px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  background: #e4f7fb !important;
 }

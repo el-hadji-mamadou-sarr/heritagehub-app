@@ -1,24 +1,10 @@
-<form class="example-form" [formGroup]="eventForm">
-  <div class="names-row">
-    <mat-form-field class="example-full-width">
-      <mat-label>type d'événement</mat-label>
-      <input
-        class="input-elt"
-        matInput
-        type="text"
-        formControlName="event_type"
-        placeholder="entrer le type d'événements"
-      />
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <mat-label>Nom de l'événement</mat-label>
-      <input
-        class="input-elt"
-        matInput
-        type="text"
-        formControlName="event_name"
-        placeholder="entrer le nom de l'événement"
-      />
-    </mat-form-field>
-  </div>
-</form>
+<app-event-view *ngFor="let event of events" [event]="event"></app-event-view>
+<button
+  mat-raised-button
+  *ngIf="canEdit && !openForm"
+  (click)="openNewEventForm()"
+  class="new-event"
+>
+  <mat-icon>add</mat-icon>
+</button>
+<app-event-new *ngIf="canEdit && openForm"></app-event-new>

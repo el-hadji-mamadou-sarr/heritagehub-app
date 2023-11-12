@@ -1,0 +1,31 @@
+<form class="example-form" [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+  <div class="names-row">
+    <mat-form-field class="example-full-width">
+      <mat-label>Nom de l'événement</mat-label>
+      <input
+        class="input-elt"
+        matInput
+        type="text"
+        formControlName="event_name"
+        placeholder="entrer le nom de l'événement"
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Type d'événement</mat-label>
+      <select matNativeControl formControlName="event_type">
+        <option *ngFor="let eventType of EVENT_TYPES" [value]="eventType">
+          {{ eventType }}
+        </option>
+      </select>
+    </mat-form-field>
+  </div>
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="eventForm.invalid"
+    class="button"
+  >
+    Submit
+  </button>
+</form>

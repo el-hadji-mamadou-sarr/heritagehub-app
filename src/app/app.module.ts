@@ -23,6 +23,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { PersonDetailComponent } from './persons/person-detail/person-detail.component';
 import { EventsViewComponent } from './events/events-view/events-view.component';
 import { RelationsViewComponent } from './relations/relations-view/relations-view.component';
+import { EventViewComponent } from './events/event-view/event-view.component';
+import { EventNewComponent } from './events/event-new/event-new.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +37,8 @@ import { RelationsViewComponent } from './relations/relations-view/relations-vie
     PersonDetailComponent,
     EventsViewComponent,
     RelationsViewComponent,
+    EventViewComponent,
+    EventNewComponent,
   ],
   imports: [
     BrowserModule,

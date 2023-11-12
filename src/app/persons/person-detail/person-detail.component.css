@@ -5,6 +5,7 @@
 
 .title-elt {
   display: flex;
+  margin-top: 37px;
   width: 612px;
   padding: 20px 10px;
   flex-direction: column;
