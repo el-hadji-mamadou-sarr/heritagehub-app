@@ -1,6 +1,13 @@
 <div class="toolbar">
   <mat-toolbar style="background: #122d3e">
-    <img src="assets/logow.svg" alt="logo" style="width: 80px" />
+    <a
+        [routerLink]="['/']"
+        routerLinkActive="active-link"
+        class="create-acc"
+        >
+
+        <img src="assets/logow.svg" alt="logo" style="width: 80px" />
+        </a>
 
     <span class="example-spacer"></span>
     <button mat-icon-button (click)="navigateToPersonCreate()">

@@ -53,3 +53,8 @@
   text-align: center;
   align-self: center;
 }
+
+.error-msg {
+  align-self: flex-start;
+  color: red;
+}

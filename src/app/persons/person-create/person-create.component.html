@@ -2,6 +2,7 @@
   <div class="title-elt">
     <span class="title-text">Créer une nouvelle personne</span>
   </div>
+    <p class="error-msg" *ngIf="displayError">Veuillez entrez des informations valides</p>
   <form
     class="example-form"
     [formGroup]="personCreateForm"
@@ -28,6 +29,13 @@
         />
       </mat-form-field>
     </div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Genre</mat-label>
+      <select matNativeControl formControlName="gender">
+        <option value="male">Masculin</option>
+        <option value="female">Feminin</option>
+      </select>
+    </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label>Date de naissance</mat-label>
       <input
@@ -67,13 +75,7 @@
         />
       </mat-form-field>
     </div>
-    <mat-form-field class="example-full-width">
-      <mat-label>Genre</mat-label>
-      <select matNativeControl formControlName="gender">
-        <option value="male">Masculin</option>
-        <option value="female">Feminin</option>
-      </select>
-    </mat-form-field>
+    
 
     <button
       mat-raised-button

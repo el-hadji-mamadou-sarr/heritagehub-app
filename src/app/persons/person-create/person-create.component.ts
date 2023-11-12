@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 })
 export class PersonCreateComponent {
   personCreateForm: FormGroup;
-
+  displayError:boolean = false;
   constructor(
     private fb: FormBuilder,
     private personService: PersonService,
@@ -29,7 +29,7 @@ export class PersonCreateComponent {
       familly_id: [''],
       father_id: [''],
       mother_id: [''],
-      gender: [''],
+      gender: ['', Validators.required],
     });
   }
 
@@ -58,7 +58,8 @@ export class PersonCreateComponent {
         this.router.navigate(['dashboard']);
       },
       error: (error) => {
-        console.log('login failed', error);
+        console.log('creation failed', error);
+        this.displayError = true;
       },
     });
   }

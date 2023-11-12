@@ -39,6 +39,7 @@ export class SearchComponent {
     }
     console.log(this.search)
     this.loadPersons()
+     this.searchForm.reset();
   }
 
   ngOnInit(): void {
@@ -51,6 +52,7 @@ export class SearchComponent {
       this.dataSource = persons.results;
       this.isPersonsLoading = false;
       this.paginatorLength = persons.count;
+      
     });
   }
 
