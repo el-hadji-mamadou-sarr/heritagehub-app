@@ -1,4 +1,4 @@
-<app-event-view *ngFor="let event of events" [event]="event"></app-event-view>
+<app-event-view *ngFor="let event of events" [event]="event" (eventDeleted)="deleteEvent($event)"></app-event-view>
 <button
   mat-raised-button
   *ngIf="canEdit && !openForm"

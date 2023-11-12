@@ -29,4 +29,16 @@ export class EventService {
       headers: headers_object,
     });
   } 
+  deleteEvent(id:number): Observable<Event> {
+    const token = this.authService.getToken();
+    var headers_object = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + token
+    );
+    return this.http.delete<Event>(`${this.dev_url}/events/${id}/`, {
+      headers: headers_object,
+    });
+  } 
+
+  
 }

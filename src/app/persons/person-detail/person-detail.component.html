@@ -91,6 +91,7 @@
   </p>
 
   <app-events-view
+    (eventDeleted)="handleEventDeletion($event)"
     (formSubmitted)="handleFormSubmission($event)"
     [events]="events"
     [canEdit]="canEdit"

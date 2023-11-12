@@ -69,6 +69,10 @@ export class PersonDetailComponent implements OnInit {
     this.noEvents = false;
   }
 
+  handleEventDeletion(deleted: boolean) {
+    this.getPersonDetail();
+  }
+
   getPersonDetail() {
     const param = this.route.snapshot.paramMap.get('id');
     if (!param) {

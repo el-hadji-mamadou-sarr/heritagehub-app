@@ -11,6 +11,7 @@ export class EventsViewComponent {
   @Input() events!: Event[];
   @Input() canEdit!: boolean;
   @Output() formSubmitted = new EventEmitter<boolean>();
+  @Output() eventDeleted = new EventEmitter<boolean>();
 
   openForm: boolean = false;
   isFormSubmitted: boolean = false;
@@ -20,7 +21,15 @@ export class EventsViewComponent {
   submitForm(submitted: boolean) {
     this.isFormSubmitted = submitted;
     this.openForm = false;
+    console.log(submitted)
     this.formSubmitted.emit(true);
   }
+
+  deleteEvent(deleted:boolean){
+    
+    this.eventDeleted.emit(true);
+  }
+
+
 
 }
