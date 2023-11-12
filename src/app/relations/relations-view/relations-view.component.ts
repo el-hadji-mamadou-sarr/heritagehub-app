@@ -10,6 +10,7 @@ import { Relation } from '../../interfaces/relation.interface';
 export class RelationsViewComponent {
   @Input() relations!: Relation[];
   @Input() canEdit!: boolean;
+  @Output() relationDeleted = new EventEmitter<boolean>();
   @Output() formSubmitted = new EventEmitter<boolean>();
 
   openForm: boolean = false;
@@ -17,9 +18,14 @@ export class RelationsViewComponent {
   openNewRelationForm() {
     this.openForm = true;
   }
+  deleteRelation(deleted:boolean){
+    console.log(deleted)
+    this.relationDeleted.emit(true);
+  }
   submitForm(submitted: boolean) {
     this.isFormSubmitted = submitted;
     this.openForm = false;
     this.formSubmitted.emit(true);
   }
+
 }

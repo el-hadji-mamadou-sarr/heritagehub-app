@@ -17,9 +17,9 @@
     display: flex;
     gap: 112px;
   }
-.delete-btn{
-  background: #e4f7fb !important;
-}
+  .delete-btn{
+    background: #e4f7fb !important;
+  }
   .input-elt:disabled {
     color: #122d3e !important;
   }

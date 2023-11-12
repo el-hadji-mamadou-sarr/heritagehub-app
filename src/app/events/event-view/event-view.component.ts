@@ -30,7 +30,7 @@ export class EventViewComponent implements OnInit {
   deleteEvent(){
     this.eventService.deleteEvent(this.event.id!).subscribe({
       next: (response) => {
-        console.log(response);
+        
         this.eventDeleted.emit(true);
       },
       error: (error) => {

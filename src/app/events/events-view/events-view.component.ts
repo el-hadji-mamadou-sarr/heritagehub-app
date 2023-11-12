@@ -21,7 +21,7 @@ export class EventsViewComponent {
   submitForm(submitted: boolean) {
     this.isFormSubmitted = submitted;
     this.openForm = false;
-    console.log(submitted)
+    console.log(submitted);
     this.formSubmitted.emit(true);
   }
 

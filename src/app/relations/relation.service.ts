@@ -28,4 +28,15 @@ export class RelationService {
       headers: headers_object,
     });
   }
+
+  deleteRelation(id:number): Observable<Relation> {
+    const token = this.authService.getToken();
+    var headers_object = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + token
+    );
+    return this.http.delete<Relation>(`${this.dev_url}/relations/${id}/`, {
+      headers: headers_object,
+    });
+  } 
 }
