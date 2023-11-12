@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EventService } from '../event.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -28,6 +28,8 @@ export class EventNewComponent {
   ];
   eventForm: FormGroup;
   personID: number | null = null;
+  @Output() formSubmitted = new EventEmitter<boolean>();
+
   constructor(
     private fb: FormBuilder,
     private eventService: EventService,
@@ -56,7 +58,8 @@ export class EventNewComponent {
     this.eventService.createEvent(eventVal).subscribe({
       next: (response) => {
         console.log(response);
-        // this.router.navigate(['dashboard']);
+
+        this.formSubmitted.emit(true);
       },
       error: (error) => {
         console.log('login failed', error);

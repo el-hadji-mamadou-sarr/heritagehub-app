@@ -13,7 +13,12 @@ export class PersonService {
   dev_url = 'http://localhost:8000';
 
   private personsCache$?: Observable<PersonQuerryResult>;
+
   constructor(private http: HttpClient, private authService: AuthService) {}
+
+  private clearPersonsCache() {
+    this.personsCache$ = undefined;
+  }
 
   getPersons(): Observable<PersonQuerryResult> {
     if (!this.personsCache$) {
@@ -35,8 +40,14 @@ export class PersonService {
       'Authorization',
       'Bearer ' + token
     );
-    return this.http.post<Person>(`${this.dev_url}/persons/`, person, {
-      headers: headers_object,
-    });
+    return this.http
+      .post<Person>(`${this.dev_url}/persons/`, person, {
+        headers: headers_object,
+      })
+      .pipe(
+        tap(() => {
+          this.clearPersonsCache();
+        })
+      );
   }
 }

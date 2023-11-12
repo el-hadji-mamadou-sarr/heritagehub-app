@@ -23,8 +23,9 @@ export class PersonDetailComponent implements OnInit {
   noEvents: boolean = false;
   noRelations: boolean = false;
   canEdit: boolean = false;
-  events:Event[]=[];
-  relations:Relation[]=[];
+  events: Event[] = [];
+  relations: Relation[] = [];
+  isFormSubmitted: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -45,6 +46,26 @@ export class PersonDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getPersonDetail();
+  }
+
+  checkIsAdmin(token: string, created_by: number): any {
+    try {
+      const decoded = jwtDecode(token);
+      if (decoded.user_id == created_by) {
+        this.canEdit = true;
+      }
+    } catch (Error) {
+      return null;
+    }
+  }
+
+  handleFormSubmission(submitted: boolean) {
+    this.isFormSubmitted = submitted;
+    this.getPersonDetail();
+  }
+
+  getPersonDetail() {
     const param = this.route.snapshot.paramMap.get('id');
     if (!param) {
       return;
@@ -62,8 +83,8 @@ export class PersonDetailComponent implements OnInit {
           mother_id: response.mother_id,
           genre: response.gender,
         });
-        this.events=response.events!;
-        this.relations=response.relations!;
+        this.events = response.events!;
+        this.relations = response.relations!;
         if (response.events?.length == 0) {
           this.noEvents = true;
         }
@@ -76,16 +97,5 @@ export class PersonDetailComponent implements OnInit {
         console.log(error);
       },
     });
-  }
-
-  checkIsAdmin(token: string, created_by: number): any {
-    try {
-      const decoded = jwtDecode(token);
-      if (decoded.user_id == created_by) {
-        this.canEdit = true;
-      }
-    } catch (Error) {
-      return null;
-    }
   }
 }

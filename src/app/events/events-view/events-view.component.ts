@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Event } from '../../interfaces/event.interface';
 
@@ -10,10 +10,17 @@ import { Event } from '../../interfaces/event.interface';
 export class EventsViewComponent {
   @Input() events!: Event[];
   @Input() canEdit!: boolean;
-  openForm: boolean = false;
+  @Output() formSubmitted = new EventEmitter<boolean>();
 
+  openForm: boolean = false;
+  isFormSubmitted: boolean = false;
   openNewEventForm() {
     this.openForm = true;
   }
-  
+  submitForm(submitted: boolean) {
+    this.isFormSubmitted = submitted;
+    this.openForm = false;
+    this.formSubmitted.emit(true);
+  }
+
 }

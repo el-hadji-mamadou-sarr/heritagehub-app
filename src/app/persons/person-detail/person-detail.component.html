@@ -91,6 +91,7 @@
   </p>
 
   <app-events-view
+    (formSubmitted)="handleFormSubmission($event)"
     [events]="events"
     [canEdit]="canEdit"
   ></app-events-view>
@@ -103,5 +104,4 @@
   </p>
   <app-relations-view *ngFor="let relation of relations" [relation]="relation">
   </app-relations-view>
-
 </div>

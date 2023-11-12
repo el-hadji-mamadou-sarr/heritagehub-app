@@ -5,13 +5,18 @@ import { shareReplay, tap } from 'rxjs/operators';
 import { AuthService } from '../auth/auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Event } from '../interfaces/event.interface';
+import { PersonService } from '../persons/person.service';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class EventService {
   url = ' http://4.210.225.238/api';
   dev_url = 'http://localhost:8000';
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService,
+    private personService: PersonService
+  ) {}
 
   createEvent(event: Event): Observable<Event> {
     console.log(event);
@@ -23,5 +28,5 @@ export class EventService {
     return this.http.post<Event>(`${this.dev_url}/events/`, event, {
       headers: headers_object,
     });
-  }
+  } 
 }
