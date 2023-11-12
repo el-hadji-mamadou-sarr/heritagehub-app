@@ -20,19 +20,24 @@ export class DashboardComponent implements OnInit {
   dataSource: Person[] = [];
   currentPage: number = 1;
   isPersonsLoading: boolean = true;
+  paginatorLength: number = 0;
   constructor(private personService: PersonService) {}
 
   ngOnInit(): void {
-    this.personService.getPersons().subscribe((persons) => {
-      console.log(persons);
+    this.loadPersons();
+  }
+
+  loadPersons() {
+    this.personService.getPersons(this.currentPage, 10).subscribe((persons) => {
       this.dataSource = persons.results;
       this.isPersonsLoading = false;
+      this.paginatorLength = persons.count;
     });
   }
 
   handlePageEvent(pageEvent: PageEvent) {
-    console.log('handlePageChange', pageEvent);
-    this.currentPage = pageEvent.pageIndex;
+    this.currentPage = pageEvent.pageIndex + 1;
+    this.loadPersons();
   }
 
   openDetail() {

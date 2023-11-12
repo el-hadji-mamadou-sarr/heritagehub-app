@@ -1,4 +1,4 @@
-<main style="margin: 86px">
+<div class="main">
   <div class="title-elt">
     <span class="title-text">Les personnes crées</span>
   </div>
@@ -42,6 +42,13 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
-  <!-- <mat-paginator [length]="100" [pageSize]="10" [pageIndex]="currentPage" (page)="handlePageEvent($event)" aria-label="Select page">
-  </mat-paginator> -->
-</main>
+
+  <mat-paginator
+    [length]="paginatorLength"
+    [pageSize]="10"
+    [pageIndex]="currentPage - 1"
+    (page)="handlePageEvent($event)"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>

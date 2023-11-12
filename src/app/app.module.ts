@@ -27,6 +27,7 @@ import { EventViewComponent } from './events/event-view/event-view.component';
 import { EventNewComponent } from './events/event-new/event-new.component';
 import { RelationViewComponent } from './relations/relation-view/relation-view.component';
 import { RelationNewComponent } from './relations/relation-new/relation-new.component';
+import { SpinnerComponent } from './common/spinner/spinner.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,7 @@ import { RelationNewComponent } from './relations/relation-new/relation-new.comp
     EventNewComponent,
     RelationViewComponent,
     RelationNewComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,

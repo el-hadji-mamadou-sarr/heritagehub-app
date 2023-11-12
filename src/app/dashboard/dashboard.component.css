@@ -1,3 +1,11 @@
+.main {
+  margin-top: 20px;
+  margin-left: 80px;
+}
+
+.mat-elevation-z8 {
+  margin-bottom: 20px;
+}
 .title-elt {
   display: flex;
   width: 612px;

@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs'; //appel async de données
 import { Person, PersonQuerryResult } from '../interfaces/person.interface';
@@ -20,10 +20,13 @@ export class PersonService {
     this.personsCache$ = undefined;
   }
 
-  getPersons(): Observable<PersonQuerryResult> {
+  getPersons(page: number, pageSize: number): Observable<PersonQuerryResult> {
     if (!this.personsCache$) {
+      const params = new HttpParams()
+        .set('page', page.toString())
+        .set('pageSize', pageSize.toString());
       this.personsCache$ = this.http
-        .get<PersonQuerryResult>(`${this.dev_url}/persons/`)
+        .get<PersonQuerryResult>(`${this.dev_url}/persons/`, { params })
         .pipe(shareReplay(1));
     }
     return this.personsCache$;
