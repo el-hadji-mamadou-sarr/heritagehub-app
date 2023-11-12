@@ -8,12 +8,17 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PersonDetailComponent } from './persons/person-detail/person-detail.component';
 import { GuestGard } from './auth/guest.guard';
 import { AuthGard } from './auth/auth.guard';
+import { SearchComponent } from './persons/search/search.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
     canActivate: [AuthGard],
+  },
+  {
+    path: 'search',
+    component: SearchComponent,
   },
   {
     path: 'login',

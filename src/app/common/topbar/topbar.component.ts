@@ -42,4 +42,8 @@ export class TopbarComponent {
     this.router.navigate(['/']);
     this.authStatusService.setIsLogginStatus(false);
   }
+  
+  navigateToSearch(){
+    this.router.navigate(['search']);
+  }
 }

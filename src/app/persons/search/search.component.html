@@ -1,8 +1,26 @@
 <div class="main">
   <div class="title-elt">
-    <span class="title-text">Les personnes crées</span>
+    <span class="title-text">Recherche</span>
   </div>
 
+
+    <form class="example-form" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="example-full-width">
+            <mat-label>Search</mat-label>
+            <input
+                matInput
+                type="search"
+                formControlName="search_value"
+                placeholder="Entrer votre recherche"
+            />
+        </mat-form-field>
+        
+        <button mat-icon-button type="submit" class="search-btn">
+            <mat-icon>search</mat-icon>
+        </button>
+    </form>
+ 
+ 
 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="familly_id">

@@ -65,16 +65,19 @@ export class PersonDetailComponent implements OnInit {
 
   handleFormSubmission(submitted: boolean) {
     this.isFormSubmitted = submitted;
-    this.getPersonDetail();
     this.noEvents = false;
+    this.getPersonDetail();
+    this.personService.clearPersonsCache()
   }
-
+  
   handleRelationDeletion(deleted: boolean) {
     this.getPersonDetail();
+    this.personService.clearPersonsCache()
   }
   
   handleEventDeletion(deleted: boolean) {
     this.getPersonDetail();
+    this.personService.clearPersonsCache()
   }
   
 

@@ -16,7 +16,7 @@ export class PersonService {
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
-  private clearPersonsCache() {
+  clearPersonsCache() {
     this.personsCache$ = undefined;
   }
 
@@ -30,6 +30,16 @@ export class PersonService {
         .pipe(shareReplay(1));
     }
     return this.personsCache$;
+  }
+
+  searchPersons(page: number, pageSize: number, search:string): Observable<PersonQuerryResult> {
+      const params = new HttpParams()
+        .set('page', page.toString())
+        .set('pageSize', pageSize.toString())
+        .set('search', search);
+      return this.http
+        .get<PersonQuerryResult>(`${this.dev_url}/persons/`, { params })
+
   }
 
   getPersonDetail(id: number): Observable<Person> {
