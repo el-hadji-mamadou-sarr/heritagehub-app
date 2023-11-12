@@ -15,6 +15,10 @@
       <p class="error-msg" *ngIf="confirmPasswordError">
         Les 2 mots de passe ne se ressemblent pas
       </p>
+      <p class="error-msg" *ngIf="formError">
+        Erreur lors de la création du compte. Il se pourrait que l'identifiant
+        soit déja pris
+      </p>
       <mat-form-field class="example-full-width">
         <mat-label>Username</mat-label>
         <input
