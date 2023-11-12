@@ -8,6 +8,7 @@ import {
 import { CustomRegisterFormValidators } from './validators';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { AuthStatusService } from '../auth-status.service';
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
@@ -20,6 +21,7 @@ export class RegisterFormComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
+    private authStatusService: AuthStatusService,
     private router: Router
   ) {
     this.registerForm = this.fb.group({
@@ -53,6 +55,7 @@ export class RegisterFormComponent {
         this.authService.setToken(token);
         this.router.navigate(['dashboard']);
         //add login status
+         this.authStatusService.setIsLogginStatus(true);
       },
       error: (error) => {
         console.log('register failed', error);
