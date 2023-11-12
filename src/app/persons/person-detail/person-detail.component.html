@@ -101,4 +101,6 @@
   <p *ngIf="noRelations">
     cette personne n'as pas encore de relations enregistrées
   </p>
+  <app-relations-view *ngFor="let relation of relations" [relation]="relation">
+  </app-relations-view>
 </div>

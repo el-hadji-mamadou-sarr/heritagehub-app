@@ -10,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 import { AuthService } from '../../auth/auth.service';
 import { Event } from '../../interfaces/event.interface';
+import { Relation } from '../../interfaces/relation.interface';
 
 @Component({
   selector: 'app-person-detail',
@@ -23,6 +24,8 @@ export class PersonDetailComponent implements OnInit {
   noRelations: boolean = false;
   canEdit: boolean = false;
   events:Event[]=[];
+  relations:Relation[]=[];
+
   constructor(
     private fb: FormBuilder,
     private personService: PersonService,
@@ -60,6 +63,7 @@ export class PersonDetailComponent implements OnInit {
           genre: response.gender,
         });
         this.events=response.events!;
+        this.relations=response.relations!;
         if (response.events?.length == 0) {
           this.noEvents = true;
         }

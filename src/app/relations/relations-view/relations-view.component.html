@@ -1,1 +1,24 @@
-<p>relations-view works!</p>
+<form class="example-form" [formGroup]="relationForm">
+  <div class="names-row">
+    <mat-form-field class="example-full-width">
+      <mat-label>Nom de la personne</mat-label>
+      <input
+        class="input-elt"
+        matInput
+        type="text"
+        formControlName="person_name"
+        placeholder="entrer le nom de la personne"
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>type de la relation</mat-label>
+      <input
+        class="input-elt"
+        matInput
+        type="text"
+        formControlName="relation_type"
+        placeholder="entrer le type de la relation"
+      />
+    </mat-form-field>
+  </div>
+</form>
