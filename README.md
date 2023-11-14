@@ -19,11 +19,12 @@ chaque membre de leur famille.
 
 # Lien du site
 
-`http://4.210.225.238`
+`http://4.210.225.238` **plus disponible**
 
 # Démarrer le projet en local
-
-- cloner le projet: `npm clone https://github.com/el-hadji-mamadou-sarr/heritagehub-app.git`
+- cloner l'api disponible sur le repository `https://github.com/el-hadji-mamadou-sarr/heritagehub.git`
+- suivre les instructions dans le readme pour démarrer le serveur.
+- cloner le projet angular: `npm clone https://github.com/el-hadji-mamadou-sarr/heritagehub-app.git`
 - installer les dépendances `npm install`
 - démarrer le serveur `npm start`
 
