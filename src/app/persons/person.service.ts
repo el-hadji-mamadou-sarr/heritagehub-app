@@ -9,8 +9,7 @@ import { AuthService } from '../auth/auth.service';
   providedIn: 'root',
 })
 export class PersonService {
-  dev_url = ' http://4.210.225.238/api';
-  // dev_url = 'http://localhost:8000';
+  dev_url = 'http://localhost:8000';
 
   private personsCache$?: Observable<PersonQuerryResult>;
 
