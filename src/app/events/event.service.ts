@@ -10,8 +10,7 @@ import { PersonService } from '../persons/person.service';
   providedIn: 'root',
 })
 export class EventService {
-  dev_url = ' http://4.210.225.238/api';
-  // dev_url = 'http://localhost:8000';
+  dev_url = 'http://localhost:8000';
   constructor(
     private http: HttpClient,
     private authService: AuthService,
